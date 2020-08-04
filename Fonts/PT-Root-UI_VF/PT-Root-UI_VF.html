@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  
+<!--
+These webfonts were purchased at www.ParaType.com
+You can purchase them too. Please don't steal them.
+
+Please don't remove this notice. Thanks.
+-->	
+	<title>Font Face Demo</title>
+	<link rel="stylesheet" href="PT%20Root%20UI_VF.css" type="text/css" charset="utf-8">
+	<style type="text/css" media="screen">
+		body {font-family: Helvetica, Arial, sans-serif; color:#333333;}
+		.PTRootUIWebVF {
+			font-family: 'PTRootUIWebVF';
+			font-weight: normal;
+			font-style: normal;
+			color:#000000;
+		}
+
+		.caption {
+			font-size: 18px;
+			color:#666666;
+		}
+		.FontName {
+			font-size: 60px;
+		}
+		.CopyrightFont {
+			font-size: 10px;
+		}
+		#container {
+			width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			overflow: none;
+		}
+		.samplebox {
+			white-space:wrap;
+			margin-top:10px;
+			margin-bottom: 0px;
+		}
+		.features {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.feature {
+			height: 42px;
+			width: 42px;
+			cursor: pointer;
+			margin: 2px;
+			border-radius: 15%;
+			background-color: #DCDCDC;
+			border: none;
+		}
+		.active{
+			background-color: #808080;			
+		}
+		
+		
+	</style>
+<script type="text/javascript">
+		fsize = 24
+		window.onload = function(){ active('kern')};
+function less()
+{
+	if (fsize > 2) {	
+		fsize = fsize-1;
+		p = document.getElementById('sample');
+		p.style.fontSize = fsize + "px";
+		document.getElementById('stext').value = fsize + "px";
+	}
+}	
+
+function more()
+{
+	if (fsize < 100) {	
+		fsize = fsize+1;
+		setSize ()
+	}
+}	
+
+function setSize ()
+{
+	p = document.getElementById('sample');
+	document.getElementById('sample-text').style.fontSize = "28px";
+	p.style.fontSize = fsize + "px";
+	document.getElementById('stext').value = fsize + "px";
+}
+
+function changeFSize()
+{
+	tsize = document.getElementById('stext').value;
+	fsize = parseInt (tsize);
+	setSize ();
+	return false;
+}
+function active(value)
+{
+	const button = document.getElementById(value); 	
+	const allFeatures = document.querySelectorAll(".features button");
+	button.classList.toggle('active');	
+	let features = "";
+	for(let i = 0; i < allFeatures.length; i ++){
+		features += "'" + allFeatures[i].id + "'" + " ";
+		if(allFeatures[i].classList.contains("active")){
+			features += "1";
+		}
+		else { features += "0"}
+		
+		if(i+1 !== allFeatures.length) {
+			features += ",";	
+		}
+	}	
+	let sample = document.getElementById('sample');
+	let sampleText = document.getElementById('sample-text');
+	let styles = "font-feature-settings:" + features + ";";
+	sample.setAttribute("style", styles);
+	sampleText.setAttribute("style", styles);	
+	setSize();
+}
+</script>	
+</head>
+<body>
+	<div id="container">
+<p class="caption">
+Font: <br>
+
+<span class="PTRootUIWebVF samplebox" style="font-size:60px; color:#990000">
+PT Root UI VF</span></p>
+
+<p class="caption">
+Sample Text:</p>
+<p id="sample-text" class="PTRootUIWebVF samplebox" style="font-size:28px">
+Jelly-like above the high wire, six quaking pachyderms kept the climax of the extravaganza in a dazzling state of flux.<br>Юный директор целиком сжевал весь объём продукции фундука (товара дефицитного и деликатесного), идя энергично через хрустящий камыш.</p>
+
+<p class="caption">
+<div>
+	<div>
+		<form onsubmit="return changeFSize();">
+		Character Set: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" value="-" onClick="less()"> &nbsp;&nbsp;<input id="stext" type="text" value="24px" style="width:40px"> &nbsp;&nbsp;<input type="button" value="+" onClick="more()"></p>
+		</form>
+		<p id="sample" class="PTRootUIWebVF samplebox" style="font-size:24px;">
+			   ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~   ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯ ° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿ À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ Ā ā Ă ă Ą ą Ć ć Ĉ ĉ Ċ ċ Č č Ď ď Đ đ Ē ē Ĕ ĕ Ė ė Ę ę Ě ě Ĝ ĝ Ğ ğ Ġ ġ Ģ ģ Ĥ ĥ Ħ ħ Ĩ ĩ Ī ī Ĭ ĭ Į į İ ı Ĳ ĳ Ĵ ĵ Ķ ķ ĸ Ĺ ĺ Ļ ļ Ľ ľ Ŀ ŀ Ł ł Ń ń Ņ ņ Ň ň ŉ Ŋ ŋ Ō ō Ŏ ŏ Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ŝ ŝ Ş ş Š š Ţ ţ Ť ť Ŧ ŧ Ũ ũ Ū ū Ŭ ŭ Ů ů Ű ű Ų ų Ŵ ŵ Ŷ ŷ Ÿ Ź ź Ż ż Ž ž ſ Ə ƒ Ǐ ǐ ǝ Ǧ ǧ Ǻ ǻ Ǽ ǽ Ǿ ǿ Ș ș Ț ț ȷ ə ɼ ʼ ˆ ˇ ˘ ˙ ˚ ˛ ˜ ˝ ́ Ξ π Ѐ Ё Ђ Ѓ Є Ѕ І Ї Ј Љ Њ Ћ Ќ Ѝ Ў Џ А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я ѐ ё ђ ѓ є ѕ і ї ј љ њ ћ ќ ѝ ў џ Ѣ ѣ Ѳ ѳ Ѵ ѵ Ґ ґ Ғ ғ Җ җ Ҙ ҙ Қ қ Ҝ ҝ Ҡ ҡ Ң ң Ҥ ҥ Ҫ ҫ Ү ү Ұ ұ Ҳ ҳ Ҷ ҷ Ҹ ҹ Һ һ Ӏ Ӂ ӂ Ӈ ӈ ӏ Ӓ ӓ Ӕ ӕ Ә ә Ӣ ӣ Ӧ ӧ Ө ө Ӯ ӯ Ӱ ӱ ẞ Ỳ ỳ ‐ ‑ ‒ – — ― ‘ ’ ‚ “ ” „ † ‡ • ‣ ․ ‥ … ‧ ‰ ‱ ‹ › ‼ ‽ ⁃ ⁄ ⁇ ⁈ ⁉ ⁰ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ ₐ ₑ ₒ ₓ ₔ ₕ ₗ ₘ ₙ ₚ ₛ ₜ ₣ € ₴ ₽ ₿ ⃰ ℀ ℁ ℅ ℆ ℓ № ℗ ℠ ™ Ω ℮ ⅐ ⅑ ⅒ ⅓ ⅔ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞ ⅟ ↉ ← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ ∂ ∆ ∏ ∑ − ∕ ∙ √ ∞ ∫ ∼ ≈ ≠ ≡ ≤ ≥ ⊍ ⊙ ⋅ ⌀ 〈 〉 ◊ ◦ ★ ☺ ☻ ✓ ✦ ✧ ✩ ❤                                                                                                                                  ﬀ ﬁ ﬂ ﬃ ﬄ ﬆ ﻿ 
+		</p>
+	</div>
+	<div class="features">
+	<p>OpenType features:</p><button id='liga' class='feature' onclick=active('liga') title='Standard Ligatures'>liga</button><button id='dlig' class='feature' onclick=active('dlig') title='Discretionary Ligatures'>dlig</button><button id='aalt' class='feature' onclick=active('aalt') title='Access All Alternates'>aalt</button><button id='salt' class='feature' onclick=active('salt') title='Stylistic Alternates'>salt</button><button id='case' class='feature' onclick=active('case') title='Case-Sensitive Forms'>case</button><button id='ordn' class='feature' onclick=active('ordn') title='Ordinals'>ordn</button><button id='locl' class='feature' onclick=active('locl') title='Localized Forms'>locl</button><button id='hist' class='feature' onclick=active('hist') title='Historical Forms'>hist</button><button id='ss01' class='feature' onclick=active('ss01') title='Stylistic Set 1'>ss01</button><button id='ss02' class='feature' onclick=active('ss02') title='Stylistic Set 2'>ss02</button><button id='ss03' class='feature' onclick=active('ss03') title='Stylistic Set 3'>ss03</button><button id='ss04' class='feature' onclick=active('ss04') title='Stylistic Set 4'>ss04</button><button id='ss05' class='feature' onclick=active('ss05') title='Stylistic Set 5'>ss05</button><button id='sups' class='feature' onclick=active('sups') title='Superscript'>sups</button><button id='subs' class='feature' onclick=active('subs') title='Subscript'>subs</button><button id='sinf' class='feature' onclick=active('sinf') title='Scientific Inferiors'>sinf</button><button id='numr' class='feature' onclick=active('numr') title='Numerators'>numr</button><button id='dnom' class='feature' onclick=active('dnom') title='Denominators'>dnom</button><button id='frac' class='feature' onclick=active('frac') title='Fractions'>frac</button><button id='pnum' class='feature' onclick=active('pnum') title='Proportional Figures'>pnum</button><button id='tnum' class='feature' onclick=active('tnum') title='Tabular Figures'>tnum</button><button id='cpsp' class='feature' onclick=active('cpsp') title='Capital Spacing'>cpsp</button><button id='kern' class='feature' onclick=active('kern') title='Kerning'>kern</button>
+	</div>
+</div>
+
+<p class="CopyrightFont">
+&#169; ParaType, 2013. All rights reserved.<br>All trademarks mentioned in this document are the trademarks or registered trademarks of their respective holders. You may reproduce and<br>distribute this document as long as you do not remove ParaType copyright information and do not make any changes in the document.<br>Русская панграмма из книги В. В. Шахиджаняна «Соло на клавиатуре»</p>	</div>
+
+</body>
+</html>
